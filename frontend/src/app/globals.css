@@ -1,0 +1,275 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-950: #08090f;
+  --color-ink-900: #0d0f18;
+  --color-ink-850: #12141f;
+  --color-ink-800: #181b29;
+  --color-ink-700: #232739;
+  --color-ink-600: #333852;
+  --color-ink-400: #7e86a8;
+  --color-ink-200: #c3c8de;
+
+  --color-brand-400: #7c8cff;
+  --color-brand-500: #5b6cff;
+  --color-brand-600: #4453e6;
+  --color-accent-400: #35d6c0;
+  --color-accent-500: #16b8a2;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(60rem 40rem at 15% -10%, rgba(91, 108, 255, 0.16), transparent 60%),
+    radial-gradient(50rem 35rem at 95% 5%, rgba(22, 184, 162, 0.12), transparent 55%),
+    var(--color-ink-950);
+  color: var(--color-ink-200);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Bangla needs conjunct-aware shaping; the Latin stack alone renders broken
+   juktakkhor. Noto Sans Bengali is loaded via next/font in layout.tsx. */
+.bangla {
+  font-family: var(--font-bangla), "Noto Sans Bengali", system-ui, sans-serif;
+  line-height: 2.05;
+}
+
+::selection {
+  background: rgba(124, 140, 255, 0.35);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-700);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-600);
+  background-clip: content-box;
+}
+
+/* ---- Markdown study guide ---- */
+.prose-notekori {
+  line-height: 1.75;
+}
+.prose-notekori h1,
+.prose-notekori h2,
+.prose-notekori h3,
+.prose-notekori h4 {
+  color: #fff;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  scroll-margin-top: 5rem;
+}
+.prose-notekori h1 {
+  font-size: 1.75rem;
+  margin: 2rem 0 1rem;
+}
+.prose-notekori h2 {
+  font-size: 1.35rem;
+  margin: 1.75rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-ink-700);
+}
+.prose-notekori h3 {
+  font-size: 1.1rem;
+  margin: 1.35rem 0 0.5rem;
+}
+.prose-notekori p {
+  margin: 0.85rem 0;
+}
+.prose-notekori ul,
+.prose-notekori ol {
+  margin: 0.85rem 0;
+  padding-left: 1.4rem;
+}
+.prose-notekori ul {
+  list-style: disc;
+}
+.prose-notekori ol {
+  list-style: decimal;
+}
+.prose-notekori li {
+  margin: 0.35rem 0;
+}
+.prose-notekori li::marker {
+  color: var(--color-brand-400);
+}
+.prose-notekori a {
+  color: var(--color-brand-400);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-notekori strong {
+  color: #fff;
+  font-weight: 620;
+}
+.prose-notekori blockquote {
+  border-left: 3px solid var(--color-brand-500);
+  background: rgba(91, 108, 255, 0.07);
+  padding: 0.6rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.prose-notekori table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.1rem 0;
+  font-size: 0.92rem;
+  display: block;
+  overflow-x: auto;
+}
+.prose-notekori th,
+.prose-notekori td {
+  border: 1px solid var(--color-ink-700);
+  padding: 0.55rem 0.8rem;
+  text-align: left;
+}
+.prose-notekori th {
+  background: var(--color-ink-800);
+  color: #fff;
+  font-weight: 600;
+}
+.prose-notekori code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.875em;
+  background: var(--color-ink-800);
+  border: 1px solid var(--color-ink-700);
+  padding: 0.12rem 0.38rem;
+  border-radius: 0.35rem;
+  color: var(--color-accent-400);
+}
+.prose-notekori pre {
+  background: var(--color-ink-900);
+  border: 1px solid var(--color-ink-700);
+  border-radius: 0.75rem;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  margin: 1.1rem 0;
+}
+.prose-notekori pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-ink-200);
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+.prose-notekori hr {
+  border: none;
+  border-top: 1px solid var(--color-ink-700);
+  margin: 1.75rem 0;
+}
+
+/* highlight.js tokens — inlined so no external stylesheet is required */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal {
+  color: #ff7ab6;
+}
+.hljs-string,
+.hljs-attr {
+  color: #7ee787;
+}
+.hljs-number,
+.hljs-symbol {
+  color: #ffab70;
+}
+.hljs-comment,
+.hljs-quote {
+  color: var(--color-ink-400);
+  font-style: italic;
+}
+.hljs-title,
+.hljs-name {
+  color: #79c0ff;
+}
+.hljs-built_in,
+.hljs-type {
+  color: var(--color-accent-400);
+}
+
+/* ---- Saved highlight marks ---- */
+mark[data-category] {
+  border-radius: 0.2rem;
+  padding: 0.05em 0.15em;
+  color: inherit;
+}
+mark[data-category="important"] {
+  background: rgba(250, 204, 21, 0.28);
+}
+mark[data-category="definition"] {
+  background: rgba(56, 189, 248, 0.28);
+}
+mark[data-category="difficult"] {
+  background: rgba(248, 113, 113, 0.28);
+}
+mark[data-category="understood"] {
+  background: rgba(52, 211, 153, 0.26);
+}
+
+/* ---- Print / Save as PDF ---- */
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm 14mm;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .print-root,
+  .print-root * {
+    color: #111 !important;
+    background: transparent !important;
+    border-color: #ccc !important;
+    box-shadow: none !important;
+  }
+
+  .print-root h1,
+  .print-root h2,
+  .print-root h3 {
+    color: #000 !important;
+    break-after: avoid;
+  }
+
+  .print-root pre,
+  .print-root table,
+  .print-root img,
+  .print-root .avoid-break {
+    break-inside: avoid;
+  }
+
+  .print-root pre,
+  .print-root code {
+    background: #f6f6f6 !important;
+    border: 1px solid #ddd !important;
+  }
+
+  .print-page-break {
+    break-before: page;
+  }
+
+  mark[data-category] {
+    background: #fff3b0 !important;
+  }
+}
