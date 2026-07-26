@@ -22,7 +22,8 @@ export function AnalysisProgress() {
   const [stage, setStage] = useState(0);
 
   useEffect(() => {
-    const timings = [700, 1400, 9000, 4000, 3000];
+    // Paced against a real ~2 minute run, most of it spent in the model call.
+    const timings = [900, 2500, 70000, 20000, 14000];
     let index = 0;
     let timer: ReturnType<typeof setTimeout>;
 
@@ -93,6 +94,15 @@ export function AnalysisProgress() {
           </motion.div>
         );
       })}
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.5 }}
+        className="pt-2 text-center text-sm text-ink-400"
+      >
+        It works but it takes around 2 minutes to complete. Please wait
+      </motion.p>
     </div>
   );
 }

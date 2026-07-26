@@ -53,7 +53,7 @@ export function ImageUploader() {
           </motion.div>
           <h2 className="text-lg font-semibold text-white">Reading your notes</h2>
           <p className="mt-1 text-sm text-ink-400">
-            This usually takes 15–40 seconds depending on how dense the board is.
+            The model reads the board, reasons about it, then writes your workspace.
           </p>
         </div>
         <AnalysisProgress />
